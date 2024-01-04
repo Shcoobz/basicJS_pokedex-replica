@@ -1,18 +1,4 @@
-// TODO: if click on pokeFrontImg || pokeBackImg fill mainScreen
-// TODO: add button b + functionality: 'Back'
-// TODO: add button a + functionality: 'ok'
-// TODO: add button down + functionality: 'down' => scroll down to more info
-// TODO: add button up + functionality: 'up' => scroll back up to picture?
-// TODO: add button left + functionality: ??? // maybe prev pokemon? prev evolution?
-// TODO: add button right + functionality: ??? // maybe next pokemon? next evolution?
-// TODO: if no pokeBackImg, show instead ''
-// TODO: handle padStart after 1000
-// TODO: handle formatting after id 1000 // everything kinda breaks
-// TODO: refactor code
-// TODO: add title
-
-const INITIAL_POKE_API_URL =
-  'https://pokeapi.co/api/v2/pokemon?offset=0&limit=20';
+const INITIAL_POKE_API_URL = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=20';
 
 const BASE_POKE_API_URL = 'https://pokeapi.co/api/v2/pokemon/';
 
@@ -65,6 +51,12 @@ function resetMainScreen() {
   });
 }
 
+/**
+ * Fetches Pokémon data and displays it on the main screen.
+ *
+ * @param {number} id - The ID of the Pokémon to fetch and display.
+ * @returns {void}
+ */
 async function fetchPokeData(id) {
   try {
     const POKE_DATA_API_URL = `${BASE_POKE_API_URL}${id}`;
@@ -101,6 +93,12 @@ async function fetchPokeData(id) {
   }
 }
 
+/**
+ * Fetches a list of Pokémon and populates the list of Pokémon names.
+ *
+ * @param {string} url - The URL of the Pokémon list to fetch.
+ * @returns {void}
+ */
 async function fetchPokeList(url) {
   try {
     const response = await fetch(url);
@@ -133,12 +131,22 @@ async function fetchPokeList(url) {
   }
 }
 
+/**
+ * Handles click on the "Previous" button by fetching the previous page of Pokémon.
+ *
+ * @returns {void}
+ */
 function handlePrevButtonClick() {
   if (prevUrl) {
     fetchPokeList(prevUrl);
   }
 }
 
+/**
+ * Handles click on the "Next" button by fetching the next page of Pokémon.
+ *
+ * @returns {void}
+ */
 function handleNextButtonClick() {
   if (nextUrl) {
     fetchPokeList(nextUrl);
@@ -148,6 +156,12 @@ if (nextUrl) {
   fetchPokeList(nextUrl);
 }
 
+/**
+ * Handles click on a Pokémon list item to display its details.
+ *
+ * @param {MouseEvent} event - The click event object.
+ * @returns {void}
+ */
 const handleListItemClick = (onClick) => {
   if (!onClick.target) return;
   const listItem = onClick.target;
@@ -156,8 +170,18 @@ const handleListItemClick = (onClick) => {
   fetchPokeData(id);
 };
 
+/**
+ * Placeholder function for handling Pokémon data side buttons.
+ *
+ * @returns {void}
+ */
 function pokeDataSideButtons() {}
 
+/**
+ * Attaches event listeners to navigation buttons for the Pokémon list.
+ *
+ * @returns {void}
+ */
 function pokeListSideButtons() {
   prevButton.addEventListener('click', handlePrevButtonClick);
   nextButton.addEventListener('click', handleNextButtonClick);
@@ -165,20 +189,36 @@ function pokeListSideButtons() {
   addClickEventListenersToPokeListItems();
 }
 
+/**
+ * Attaches click event listeners to Pokémon list items.
+ *
+ * @returns {void}
+ */
 function addClickEventListenersToPokeListItems() {
   pokeListItems.forEach((pokeListItem) => {
     pokeListItem.addEventListener('click', handleListItemClick);
   });
 }
 
+/**
+ * Initializes event listeners to handle interactions.
+ *
+ * @returns {void}
+ */
 function eventListeners() {
   pokeDataSideButtons();
   pokeListSideButtons();
 }
 
+/**
+ * The main function to start fetching and displaying Pokémon data.
+ *
+ * @returns {void}
+ */
 function main() {
   fetchPokeList(INITIAL_POKE_API_URL);
   eventListeners();
 }
 
+// Execute the main function to start the application.
 main();
