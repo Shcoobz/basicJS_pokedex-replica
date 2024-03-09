@@ -1,4 +1,4 @@
-# Pokedex Replica
+# [LIVE DEMO](https://shcoobz.github.io/pokedex-replica/) -> Pokedex Replica
 
 ![Project Image](/img/pokedex-replica.png)
 
