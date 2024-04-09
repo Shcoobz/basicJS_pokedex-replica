@@ -4,7 +4,7 @@
 
 ## Summary
 
-Welcome to the Pokedex Replica! This application serves as a digital encyclopedia for Pokemon trainers and enthusiasts. It allows users to explore detailed information about various Pokemon species and their characteristics. The Pokedex Replica features a user-friendly interface and provides a seamless way to discover and learn about different Pokemon.
+Pokedex Replica serves as a digital encyclopedia for Pokemon trainers and enthusiasts. It allows users to explore detailed information about various Pokemon species and their characteristics. The Pokedex Replica features a user-friendly interface and provides a seamless way to discover and learn about different Pokemon.
 
 The core functionality includes:
 
