@@ -1,6 +1,6 @@
-# [LIVE DEMO](https://shcoobz.github.io/pokedex-replica/) -> Pokedex Replica
+# basicJS_Pokedex Replica: [LIVE DEMO](https://shcoobz.github.io/basicJS_pokedex-replica/)
 
-![Project Image](/img/pokedex-replica.png)
+![Project Image](/img/basicJS_pokedex-replica.png)
 
 ## Summary
 
